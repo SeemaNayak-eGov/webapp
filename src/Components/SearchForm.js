@@ -21,7 +21,7 @@ const styles = theme => ({
   }
 });
 
-const instance = axios.create(
+axios.create(
   {baseURL: window.location.origin}
 );
 
@@ -42,7 +42,7 @@ class SearchForm extends React.Component {
   }
 
   componentDidMount = () => {
-    instance.post('egov-mdms-service/v1/_search?tenantId=pb', {
+    axios.post('egov-mdms-service/v1/_search?tenantId=pb', {
       "RequestInfo": {
         "apiId": "Rainmaker",
         "ver": ".01",
@@ -96,7 +96,7 @@ class SearchForm extends React.Component {
       url = url + '&locale=en_IN';
     }
 
-    instance.post(url, {
+    axios.post(url, {
       "RequestInfo": {
         "apiId": "Rainmaker",
         "ver": ".01",
